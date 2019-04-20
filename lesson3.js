@@ -23,11 +23,11 @@ document.querySelector('a').addEventListener('click', () => {
 // 6. Найти все элементы div с классом one, а также все элементы p с классом two.
 // Затем добавить им всем класс three и визуально плавно спустить вниз.
 
-$('div.one').add('p.two').addClass('three').slideDown('slow');
+//$('div.one').add('p.two').addClass('three').slideDown('slow');
 
 // 7. Выбрать видимый div с именем red, который содержит тег span.
 
-$('div[name=red]:visible:has(span)');
+//$('div[name=red]:visible:has(span)');
 
 // 8. Привести пример замыкания.
 
@@ -94,4 +94,23 @@ clock_degree("20:34"); //returns : "240:204"
 // 11. Написать простую игру «Угадай число». Программа загадывает случайное число от 0 до 100.
 // Игрок должен вводить предположения и получать ответы «Больше», «Меньше» или «Число угадано».
 
+let number = Math.floor(Math.random() * 100);
+console.log(number);
 
+guessTheNumber(number);
+
+function guessTheNumber(number){
+    let numberUser = +prompt('Введите число от 0 до 100');
+    console.log(numberUser);
+    if (number === numberUser) {
+        alert('Число угадано');
+    }
+    if (number < numberUser) {
+        alert('Больше');
+        guessTheNumber(number);
+    }
+    if (number > numberUser) {
+        alert('Меньше');
+        guessTheNumber(number);
+    }
+}
